@@ -34,3 +34,57 @@ SHA-256:
 
 These checksums identify the exact files used for the initial successful
 test. Third-party files are not distributed by this project.
+
+## Confirmed plugin compatibility
+
+### RAGENativeUI
+
+- Version: 1.9.3
+- Status: Confirmed working
+
+SHA-256:
+
+    d2607481b206e7907c9c1f2cabf15797654aacaaf1746ea202740dcdd5eb8bbb
+
+### Prowler Radar
+
+- Version: 1.3.1
+- Status: Confirmed working
+- Requires RAGENativeUI 1.9.3 in the tested installation
+
+A Rockstar Launcher Error 17 was observed during earlier testing, but the
+error could not be reproduced after restoring the exact same Prowler files.
+Prowler Radar should therefore not currently be considered the cause of that
+incident.
+
+### Stop The Ped
+
+- Version: 4.9.5.4
+- Status: Working in initial testing
+- Installed as an LSPDFR plugin
+
+The RAGENativeUI.dll included with Stop The Ped 4.9.5.4 was compared against
+the already-tested RAGENativeUI 1.9.3 DLL and was byte-for-byte identical.
+
+Tested Stop The Ped configuration includes:
+
+    TakeOverAllArrests=yes
+
+    [PrisonerTransport]
+    PrisonerTransportEnabled=yes
+    SelfTransportEnabled=yes
+
+Initial gameplay testing indicates that Stop The Ped can replace problematic
+vanilla LSPDFR arrest/transport functionality. More extensive transport
+testing is still in progress.
+
+## RAGE Plugin Hook launch requirement
+
+On the tested installation, RAGE Plugin Hook must be launched with the GTA V
+installation directory as its working directory.
+
+Launching RPH from another working directory caused problems even when the
+correct executable path was supplied.
+
+A local wrapper script is currently used to change into the GTA V directory
+before starting RAGE Plugin Hook.

@@ -36,3 +36,45 @@ This does not mean the GTA V Proton prefix is damaged.
 
 Some Protontricks operations require access to the graphical user's
 session environment.
+
+## Vanilla LSPDFR prisoner transport terminates GTA V
+
+Vanilla LSPDFR prisoner transport has caused the complete GTA V Legacy
+process to terminate during testing.
+
+The failure has been reproduced more than once immediately after requesting
+prisoner transport.
+
+During one captured occurrence, LSPDFR successfully assigned the prisoner to
+its transport manager, but no managed LSPDFR fatal exception was recorded
+before GTA V disappeared.
+
+Current status:
+
+- Reproducible on the tested configuration
+- Root cause unknown
+- Avoid vanilla LSPDFR prisoner transport for now
+- Stop The Ped prisoner transport is being tested as a workaround
+
+This should not be confused with the Duty Garage failure below.
+
+## LSPDFR Duty Garage throws vehicle spawn exception
+
+Opening or using the LSPDFR Duty Garage produced:
+
+    System.InvalidOperationException:
+    Could not spawn new vehicle.
+
+The exception originated from `DutyGarageMenu.cs`.
+
+Unlike the prisoner transport failure, GTA V and RAGE Plugin Hook remained
+running while LSPDFR force-terminated.
+
+Attempting to reload LSPDFR afterward resulted in an unusable or frozen
+session.
+
+Current workaround:
+
+- Do not use the LSPDFR Duty Garage
+- If LSPDFR terminates with a fatal exception, restart GTA V rather than
+  attempting to reload LSPDFR in the same game session
